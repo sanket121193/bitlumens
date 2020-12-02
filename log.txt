@@ -1,0 +1,2 @@
+Installed chaincodes on peer:
+Package ID: cert_cc_1:2fb0e49013d3a59a2b54ef542f6deb38ad7700c213fc5925323ca9cd1c51a776, Label: cert_cc_1
