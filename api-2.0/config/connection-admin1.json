@@ -1,0 +1,62 @@
+{
+    "name": "first-network-admin1",
+    "version": "1.0.0",
+    "client": {
+        "organization": "admin1",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                }
+            }
+        }
+    },
+    "organizations": {
+        "admin1": {
+            "mspid": "admin1MSP",
+            "peers": [
+                "peer0.admin1.bitlumens.com",
+                "peer1.admin1.bitlumens.com"
+            ],
+            "certificateAuthorities": [
+                "ca.admin1.bitlumens.com"
+            ]
+        }
+    },
+    "peers": {
+        "peer0.admin1.bitlumens.com": {
+            "url": "grpcs://localhost:7051",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICFjCCAb2gAwIBAgIUA6Tg/QT8xd2cIN1q5qjecTXNC6EwCgYIKoZIzj0EAwIw\naDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt\nY2Etc2VydmVyMB4XDTIxMDEyMjA1MjYwMFoXDTM2MDExOTA1MjYwMFowaDELMAkG\nA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl\ncmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy\ndmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEY5dhQo2rdd2zBIo3QQmXwNWB\nGlok57frFBlZxPEn6kLEeILqczyHd37pRFGCstd8XQRgDvjcV4SvRmBDl4G1Q6NF\nMEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE\nFBetRbom9B2WQsLLXggEbjie1FHAMAoGCCqGSM49BAMCA0cAMEQCIGUcpGzc5XWf\n6A/MB4ULwCf45Vc5uHWrgUnVpoWnHNZEAiAH7vst93DQ2zazKB4n6UVo/V99/HFc\nav3mmZeOkrgDnw==\n-----END CERTIFICATE-----\n"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.admin1.bitlumens.com",
+                "hostnameOverride": "peer0.admin1.bitlumens.com"
+            }
+        },
+	"peer1.admin1.bitlumens.com": {
+            "url": "grpcs://localhost:8051",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICFjCCAb2gAwIBAgIUA6Tg/QT8xd2cIN1q5qjecTXNC6EwCgYIKoZIzj0EAwIw\naDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt\nY2Etc2VydmVyMB4XDTIxMDEyMjA1MjYwMFoXDTM2MDExOTA1MjYwMFowaDELMAkG\nA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl\ncmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy\ndmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEY5dhQo2rdd2zBIo3QQmXwNWB\nGlok57frFBlZxPEn6kLEeILqczyHd37pRFGCstd8XQRgDvjcV4SvRmBDl4G1Q6NF\nMEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE\nFBetRbom9B2WQsLLXggEbjie1FHAMAoGCCqGSM49BAMCA0cAMEQCIGUcpGzc5XWf\n6A/MB4ULwCf45Vc5uHWrgUnVpoWnHNZEAiAH7vst93DQ2zazKB4n6UVo/V99/HFc\nav3mmZeOkrgDnw==\n-----END CERTIFICATE-----\n"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer1.admin1.bitlumens.com",
+                "hostnameOverride": "peer1.admin1.bitlumens.com"
+            }
+        }
+
+	
+    },
+    "certificateAuthorities": {
+        "ca.admin1.bitlumens.com": {
+            "url": "https://localhost:7054",
+            "caName": "ca.admin1.bitlumens.com",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICFjCCAb2gAwIBAgIUA6Tg/QT8xd2cIN1q5qjecTXNC6EwCgYIKoZIzj0EAwIw\naDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMt\nY2Etc2VydmVyMB4XDTIxMDEyMjA1MjYwMFoXDTM2MDExOTA1MjYwMFowaDELMAkG\nA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQKEwtIeXBl\ncmxlZGdlcjEPMA0GA1UECxMGRmFicmljMRkwFwYDVQQDExBmYWJyaWMtY2Etc2Vy\ndmVyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEY5dhQo2rdd2zBIo3QQmXwNWB\nGlok57frFBlZxPEn6kLEeILqczyHd37pRFGCstd8XQRgDvjcV4SvRmBDl4G1Q6NF\nMEMwDgYDVR0PAQH/BAQDAgEGMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYE\nFBetRbom9B2WQsLLXggEbjie1FHAMAoGCCqGSM49BAMCA0cAMEQCIGUcpGzc5XWf\n6A/MB4ULwCf45Vc5uHWrgUnVpoWnHNZEAiAH7vst93DQ2zazKB4n6UVo/V99/HFc\nav3mmZeOkrgDnw==\n-----END CERTIFICATE-----\n"
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+}

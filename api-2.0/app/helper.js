@@ -1,5 +1,3 @@
-'use strict';
-
 var { Gateway, Wallets } = require('fabric-network');
 const path = require('path');
 const FabricCAServices = require('fabric-ca-client');
@@ -9,11 +7,11 @@ const util = require('util');
 
 const getCCP = async (org) => {
     let ccpPath;
-    if (org == "Org1") {
-        ccpPath = path.resolve(__dirname, '..', 'config', 'connection-org1.json');
+    if (org == "admin1") {
+        ccpPath = path.resolve(__dirname, '..', 'config', 'connection-admin1.json');
 
-    } else if (org == "Org2") {
-        ccpPath = path.resolve(__dirname, '..', 'config', 'connection-org2.json');
+    } else if (org == "admin2") {
+        ccpPath = path.resolve(__dirname, '..', 'config', 'connection-admin2.json');
     } else
         return null
     const ccpJSON = fs.readFileSync(ccpPath, 'utf8')
@@ -23,11 +21,11 @@ const getCCP = async (org) => {
 
 const getCaUrl = async (org, ccp) => {
     let caURL;
-    if (org == "Org1") {
-        caURL = ccp.certificateAuthorities['ca.org1.example.com'].url;
+    if (org == "admin1") {
+        caURL = ccp.certificateAuthorities['ca.admin1.bitlumens.com'].url;
 
-    } else if (org == "Org2") {
-        caURL = ccp.certificateAuthorities['ca.org2.example.com'].url;
+    } else if (org == "admin2") {
+        caURL = ccp.certificateAuthorities['ca.admin2.bitlumnes.com'].url;
     } else
         return null
     return caURL
@@ -36,11 +34,11 @@ const getCaUrl = async (org, ccp) => {
 
 const getWalletPath = async (org) => {
     let walletPath;
-    if (org == "Org1") {
-        walletPath = path.join(process.cwd(), 'org1-wallet');
+    if (org == "admin1") {
+        walletPath = path.join(process.cwd(), 'admin1-wallet');
 
-    } else if (org == "Org2") {
-        walletPath = path.join(process.cwd(), 'org2-wallet');
+    } else if (org == "admin2") {
+        walletPath = path.join(process.cwd(), 'admin2-wallet');
     } else
         return null
     return walletPath
@@ -51,6 +49,7 @@ const getWalletPath = async (org) => {
 const getAffiliation = async (org) => {
     return org == "Org1" ? 'org1.department1' : 'org2.department1'
 }
+
 
 const getRegisteredUser = async (username, userOrg, isJson) => {
     let ccp = await getCCP(userOrg)
@@ -98,22 +97,22 @@ const getRegisteredUser = async (username, userOrg, isJson) => {
     // const enrollment = await ca.enroll({ enrollmentID: username, enrollmentSecret: secret, attr_reqs: [{ name: 'role', optional: false }] });
 
     let x509Identity;
-    if (userOrg == "Org1") {
+    if (userOrg == "admin1") {
         x509Identity = {
             credentials: {
                 certificate: enrollment.certificate,
                 privateKey: enrollment.key.toBytes(),
             },
-            mspId: 'Org1MSP',
+            mspId: 'admin1MSP',
             type: 'X.509',
         };
-    } else if (userOrg == "Org2") {
+    } else if (userOrg == "admin2") {
         x509Identity = {
             credentials: {
                 certificate: enrollment.certificate,
                 privateKey: enrollment.key.toBytes(),
             },
-            mspId: 'Org2MSP',
+            mspId: 'admin2MSP',
             type: 'X.509',
         };
     }
@@ -144,11 +143,11 @@ const isUserRegistered = async (username, userOrg) => {
 
 const getCaInfo = async (org, ccp) => {
     let caInfo
-    if (org == "Org1") {
-        caInfo = ccp.certificateAuthorities['ca.org1.example.com'];
+    if (org == "admin1") {
+        caInfo = ccp.certificateAuthorities['ca.admin1.bitlumens.com'];
 
-    } else if (org == "Org2") {
-        caInfo = ccp.certificateAuthorities['ca.org2.example.com'];
+    } else if (org == "admin2") {
+        caInfo = ccp.certificateAuthorities['ca.admin2.bitlumens.com'];
     } else
         return null
     return caInfo
@@ -180,22 +179,22 @@ const enrollAdmin = async (org, ccp) => {
         // Enroll the admin user, and import the new identity into the wallet.
         const enrollment = await ca.enroll({ enrollmentID: 'admin', enrollmentSecret: 'adminpw' });
         let x509Identity;
-        if (org == "Org1") {
+        if (org == "admin1") {
             x509Identity = {
                 credentials: {
                     certificate: enrollment.certificate,
                     privateKey: enrollment.key.toBytes(),
                 },
-                mspId: 'Org1MSP',
+                mspId: 'admin1MSP',
                 type: 'X.509',
             };
-        } else if (org == "Org2") {
+        } else if (org == "admin2") {
             x509Identity = {
                 credentials: {
                     certificate: enrollment.certificate,
                     privateKey: enrollment.key.toBytes(),
                 },
-                mspId: 'Org2MSP',
+                mspId: 'admin2MSP',
                 type: 'X.509',
             };
         }

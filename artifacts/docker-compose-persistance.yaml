@@ -239,7 +239,7 @@ services:
       - ./channel/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls:/etc/hyperledger/crypto/peer/tls
       - /var/run/:/host/var/run/
       - ./channel/:/etc/hyperledger/channel/
-      - /var/pavan/peer0-org1:/var/hyperledger/production
+      - /var/sanket/peer0-org1:/var/hyperledger/production
     networks:
       - test
 
